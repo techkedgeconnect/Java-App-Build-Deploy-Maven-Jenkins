@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'build-simple-java-maven-app/deliver.sh'
+                sh './deliver.sh'
             }
         }
     }
