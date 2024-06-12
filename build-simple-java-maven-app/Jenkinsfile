@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'sudo chmod -R 777 build-simple-java-maven-app/deliver.sh'
+                sh 'chmod -R 777 build-simple-java-maven-app/deliver.sh'
             }
         }
     }
