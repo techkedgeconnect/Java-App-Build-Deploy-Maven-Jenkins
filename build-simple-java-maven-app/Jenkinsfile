@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
         stage('Build') {
             steps {
@@ -14,6 +17,11 @@ pipeline {
                 always {
                     junit 'build-simple-java-maven-app/target/surefire-reports/*.xml' 
                 }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh 'build-simple-java-maven-app/jenkins/scripts/deliver.sh'
             }
         }
     }
